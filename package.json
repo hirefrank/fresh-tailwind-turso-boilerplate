@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@libsql/client": "^0.6.0",
+    "@types/node": "^20.4.8",
+    "dotenv": "^16.3.1",
+    "drizzle-kit": "^0.20.17",
+    "drizzle-orm": "^0.30.10"
+  },
+  "scripts": {
+    "generate": "drizzle-kit generate:sqlite --config ./drizzle/drizzle.config.ts",
+    "is": "drizzle-kit introspect:sqlite --config ./drizzle/drizzle.config.ts",
+    "drop": "drizzle-kit drop --config ./drizzle/drizzle.config.ts"
+  }
+}

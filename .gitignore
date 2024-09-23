@@ -1,0 +1,17 @@
+.DS_Store
+
+# dotenv environment variable files
+.env
+.env.dev.local
+.env.test.local
+.env.prod.local
+.env.local
+
+# Fresh build directory
+_fresh/
+# npm dependencies
+node_modules/
+logs.txt
+errors.txt
+
+*.db*

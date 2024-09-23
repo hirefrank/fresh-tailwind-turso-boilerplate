@@ -1,0 +1,39 @@
+{
+  "lock": false,
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "manifest": "deno task cli manifest $(pwd)",
+    "migrations": "deno run -A src/db/migrations.ts",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "DENO_SKIP_ENVVAR=true deno run -A dev.ts build",
+    "preview": "deno run -A main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update ."
+  },
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
+    "preact": "https://esm.sh/preact@10.19.6",
+    "preact/": "https://esm.sh/preact@10.19.6/",
+    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.0.2",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "@alloc/quick-lru": "https://esm.sh/*@alloc/quick-lru@5.2.0",
+    "@baselime/node-opentelemetry": "npm:@baselime/node-opentelemetry",
+    "@opentelemetry/auto-instrumentations-node": "npm:@opentelemetry/auto-instrumentations-node",
+    "@opentelemetry/api": "npm:@opentelemetry/api",
+    "drizzle-orm": "npm:drizzle-orm@0.33.0",
+    "drizzle-kit": "npm:drizzle-kit@0.20.17",
+    "@libsql/client": "npm:@libsql/client@0.11.0",
+    "tailwindcss": "npm:tailwindcss@3.4.1",
+    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
+    "$std/": "https://deno.land/std@0.216.0/"
+  },
+  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "nodeModulesDir": true,
+  "fmt": {
+    "options": { "useTabs": false, "lineWidth": 120, "indentWidth": 2, "singleQuote": true, "proseWrap": "preserve" }
+  }
+}
